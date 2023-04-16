@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Expenses from "./component/expenses/expenses";
 import NewExpense from "./component/new_expense/NewExpense";
 
@@ -26,11 +27,21 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  const [expenses,setExpenses]=useState(DUMMY_DATA)
 
+  const onAddNewExpenseItem =(expense)=>{
+   
+    setExpenses((previous_expenses)=>{
+      return[expense,...previous_expenses];
+
+    })
+   
+  }
   return (
     <div className="App">
-      <NewExpense/>
-       <Expenses expenses={DUMMY_DATA}/>
+      <NewExpense submitAction={onAddNewExpenseItem}/>
+       <Expenses expenses={expenses}/>
+
     </div>
     
   )

@@ -16,6 +16,7 @@ const ExpenseList =(props)=>{
                 title={each_expenses.title}
                 amount={each_expenses.amount}
                 date={each_expenses.date}
+                key={each_expenses.id}
                 />
             )
 
